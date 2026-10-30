@@ -1,0 +1,42 @@
+/* Six scenes; existing rules and identity entry remain in document order. */
+.sheet{max-width:none;padding:0;background:none;box-shadow:none;color:var(--parch)}
+.sheet::before{display:none}
+.sheet>.lead,.sheet>.tx{max-width:40rem;margin:0 auto;padding:80px 28px;text-shadow:0 2px 12px #000}
+.sheet>.lead{padding-top:110px;padding-bottom:32px}
+.sheet>.lead b{color:var(--gb)}
+.sheet>.dv{max-width:240px;margin:48px auto;background:var(--gd)}
+.sheet>.tx{margin:0 auto!important;padding-top:0;padding-bottom:120px;color:var(--gold)}
+#identity:not([hidden]){max-width:640px;margin:40px auto 100px;padding:42px 28px;background:var(--ink);border:1px solid var(--gd);color:var(--parch)}
+#identity h2,#identity h3{color:var(--gb)}
+.ch{position:relative;isolation:isolate;margin:0;min-height:100svh}
+.ch>.plate{position:sticky;top:0;width:100%;height:100svh;aspect-ratio:auto;margin:0 0 -100svh;box-shadow:none;background:var(--void);z-index:0;pointer-events:none}
+.ch>.plate img{width:100%;height:100%;object-fit:cover;object-position:center}
+.ch>.plate::after{display:block;content:"";position:absolute;inset:0;padding:0;background:linear-gradient(180deg,var(--void),transparent 18%,transparent 72%,var(--void)),linear-gradient(90deg,#120d1010,#120d1020 35%,#120d1070)}
+.chapter-copy{position:relative;z-index:1;width:min(620px,calc(100% - 64px));margin-left:auto;margin-right:6vw;padding:clamp(100px,20vh,220px) 0 clamp(100px,18vh,200px)}
+.chapter-panel{padding:44px 42px 30px;background:linear-gradient(135deg,#120d10ef,#17121ae6);border:1px solid #c2a06a66;box-shadow:0 24px 100px #0008}
+.ch .hd{margin-bottom:32px}.ch .no{position:static;font-size:64px;color:var(--gold);text-shadow:none;margin-bottom:14px}
+.ch h2{color:var(--gb);font-size:clamp(29px,3vw,38px)}
+.ch .en,.ch .cap{color:var(--shade)}
+.ch p,.ch li{color:var(--parch)}
+.ch b,.ch strong{color:var(--gb)}
+.ch .life{color:#e6a055}.ch .death{color:#d9d2c0}
+.ch .sigil-pair{gap:12px}.ch .sigil-card{padding:12px 10px;background:#ffffff05;border-color:#c2a06a44;gap:8px}
+.ch .sigil-card img{width:60px;height:60px}.ch .sigil-card b,.ch .sigil-card.death b{color:var(--gb);font-size:20px}.ch .sigil-card small{color:var(--shade)}
+#bd{color:var(--shade)}#bd u{border-color:#c2a06a55;background:#ffffff06}#bd u.c{color:var(--gb)}
+.ch .mo{color:var(--shade)}.ch .mo .d em{background:#120d10}
+.ch .law{background:#3a121bb8;outline-color:var(--gd)}
+.ch .two div{background:#ffffff06}.ch .two div+div{border-top-color:var(--shade)}
+.ch .two h3{color:var(--gb)}.ch .sig{color:var(--gb)}
+.end{position:relative;margin-top:0;padding-top:130px;padding-bottom:110px}
+@media(min-width:1500px){.chapter-copy{margin-right:12vw}}
+@media(max-width:760px){
+ .ch>.plate{position:absolute;inset:0;height:100%;margin:0}
+ .ch>.plate img{object-position:42% top}
+ .ch>.plate::after{background:linear-gradient(180deg,var(--void),#120d1033 12%,#120d1070 32%,#120d10e8 75%,var(--void))}
+ .chapter-copy{width:calc(100% - 32px);margin:0 auto;padding:36svh 0 80px}
+ .chapter-panel{padding:30px 22px 22px;background:#120d10ed}
+ .ch .no{font-size:48px}.ch .two{grid-template-columns:1fr}.ch .sigil-pair{grid-template-columns:1fr}
+ .sheet>.lead{font-size:18px;padding-top:70px}.sheet>.tx{padding-bottom:64px}
+ .ch .mo{gap:12px}.ch .mo .sp{width:10px}
+}
+@media(prefers-reduced-motion:reduce){.ch>.plate{position:absolute;inset:0;height:100%;margin:0}}
