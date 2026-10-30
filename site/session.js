@@ -19,6 +19,7 @@
  const box=document.querySelector('#identity');box.hidden=false;
  const label=document.createElement('p');label.textContent='仅供你阅读 · 玩家 '+data.number+' 号';box.append(label);
  const heading=document.createElement('h2');heading.textContent=data.title;heading.style.fontFamily='Zhi Mang Xing,serif';box.append(heading);
+ if(typeof data.badgeUrl==='string'&&/^https:\/\/zhuochenghe\.github\.io\/secret-grid\/assets\/[a-f0-9]+\.png$/.test(data.badgeUrl)){const art=document.createElement('img');art.src=data.badgeUrl;art.alt=data.title+'徽章';art.style.cssText='display:block;width:min(260px,80%);height:auto;margin:24px auto';box.append(art);}
  for(const [title,text] of [['',data.en],['',data.lore],['你的宿命',data.goal],['你的宿敌：'+data.rivalTitle,data.rivalGoal]]){
  if(title){const h=document.createElement('h3');h.textContent=title;box.append(h);}
  const p=document.createElement('p');const parts=String(text||'').split(/(\*\*[^*]+\*\*)/g);for(const part of parts){const n=document.createElement(part.startsWith('**')?'strong':'span');n.textContent=part.replace(/^\*\*|\*\*$/g,'');p.append(n);}p.style.whiteSpace='pre-line';box.append(p);
