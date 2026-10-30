@@ -1,0 +1,6 @@
+# This repository publishes Pages only. Keep the local roster, Apps Script,
+# identity and ending catalogs, original artwork names, and previews private.
+/*
+!/.gitignore
+!/.github/
+!/site/

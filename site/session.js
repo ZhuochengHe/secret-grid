@@ -17,6 +17,7 @@ async function loadSecretGridSession(){
  document.querySelector('#key').value='SG1:'+btoa(JSON.stringify(p));document.querySelector('#load').click();
  status.textContent='本局已自动载入，核验已启用。';if(status.parentElement.hidden)status.parentElement.before(status);
  const hostUrl=new URL('index.html',location.href);hostUrl.hash=new URLSearchParams({host:token,key}).toString();SecretGridNavigation.rememberHost(hostUrl.href);
+ window.dispatchEvent(new CustomEvent('secretgrid:host',{detail:data}));
  }else{
  if(!Number.isInteger(data.number)||data.number<1||data.number>10||typeof data.title!=='string')throw Error();
  const identityUrl=new URL(location.href),identityParams=new URLSearchParams(identityUrl.hash.slice(1));identityParams.delete('view');if(previewMode){identityUrl.pathname=new URL('badge-preview.html',location.href).pathname;identityParams.delete('preview');}identityUrl.hash=identityParams.toString();SecretGridNavigation.remember(identityUrl.href,data,previewMode);
