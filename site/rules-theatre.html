@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>命运法则 · THE LAST MASQUERADE</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@600&family=Cormorant+Garamond:ital@1&family=Noto+Serif+SC:wght@400;600&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css" rel="stylesheet">
+<style>
+@font-face{font-family:"Zhi Mang Xing";src:url("/secret-grid/fonts/zhi-mang-xing.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
+@font-face{font-family:"Zhuque Fangsong (technical preview)";src:url("/secret-grid/fonts/zhuque-fangsong.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
+/* ASSET SLOTS (all optional, a framed placeholder shows until the file exists), paths under assets/web/:
+   bg.jpg 2400x1600 fixed page background | hero.jpg 1122x1402 | ch1..ch6.jpg 1800x600 chapter plates
+   card-back.jpg 800x1200 | badge-01..10.jpg 800x800 | seal.png (assets/seal.png) */
+:root{--void:#120D10;--ink:#17121A;--ox:#3A121B;--wine:#5E1B28;--crim:#8C2A38;--gold:#C2A06A;--gb:#E3C98F;--gd:#8A6F47;--parch:#E8DCC2;--shade:#CDBB98;--ip:#2B1D1A;
+--zh:"Zhuque Fangsong (technical preview)","Noto Serif SC","Songti SC",SimSun,serif;--hd:"ZCOOL XiaoWei","Noto Serif SC",serif;--po:"LXGW WenKai","Kaiti SC",KaiTi,serif;--identity:"Zhi Mang Xing","ZCOOL XiaoWei","Noto Serif SC",serif;--dp:"Cinzel Decorative","Cinzel",Georgia,serif;--it:"Cormorant Garamond",Georgia,serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--void);color:var(--ip);font:400 17px/2 var(--zh);-webkit-text-size-adjust:100%;overflow-x:hidden}
+body.lock{overflow:hidden}
+p{margin:0 0 1.1em}b{font-weight:600}
+:focus-visible{outline:2px solid var(--gb);outline-offset:3px}
+svg.s{width:1em;height:1em;vertical-align:-.12em;fill:currentColor}
+.life{color:#B5651D}.death{color:var(--ip)}
+
+/* grand backdrop: image slot over a painted fallback, plus a slowly turning Board of Fate */
+.bg{position:fixed;inset:0;z-index:-3;background:radial-gradient(ellipse 80% 55% at 50% 12%,#4a1622 0,transparent 70%),radial-gradient(ellipse 90% 40% at 50% 100%,#2a1a24,transparent 70%),url(assets/web/bg.jpg) center/cover,var(--void)}
+.bg::after{content:"";position:absolute;inset:0;background:linear-gradient(#120d1066,#120d10b0)}
+.wm{position:fixed;left:50%;top:50%;width:min(130vmin,1200px);margin:calc(min(130vmin,1200px)/-2) 0 0 calc(min(130vmin,1200px)/-2);z-index:-2;opacity:.1;pointer-events:none}
+.wm svg{width:100%;display:block;animation:sp 240s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+/* the one staged moment */
+#gate{position:fixed;inset:0;z-index:9;background:var(--void);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:36px;transition:opacity 1.1s ease .5s,visibility 0s linear 1.6s}
+#gate img{width:min(230px,54vw);transition:transform 1.1s cubic-bezier(.5,0,.2,1),opacity .9s ease .2s;filter:drop-shadow(0 0 44px #8c2a3880)}
+#gate button{font:400 18px var(--po);letter-spacing:.5em;padding:14px 22px 14px 28px;background:none;color:var(--gb);border:1px solid var(--gd);cursor:pointer}
+#gate button:hover{border-color:var(--gb)}
+.gt{font:italic 15px var(--it);color:var(--gd);letter-spacing:.2em}
+#gate.open{opacity:0;visibility:hidden}
+#gate.open img{transform:scale(1.7);opacity:0}
+
+/* image slots */
+.slot{position:relative;overflow:hidden;margin:0;background:linear-gradient(135deg,#2a1118,#17121A);box-shadow:inset 0 0 0 1px var(--gd),inset 0 0 0 7px #17121A,inset 0 0 0 8px #8a6f4799;display:flex;align-items:center;justify-content:center;text-align:center}
+.slot::after{content:attr(data-ph);font:italic 14px/1.7 var(--it);color:var(--gd);letter-spacing:.15em;padding:0 24px;white-space:pre-line}
+.slot:has(img)::after{display:none}
+.slot img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* hero */
+.hero{min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:calc(40px + env(safe-area-inset-top)) 24px 56px;text-align:center}
+.hero .art{width:min(500px,86vw);aspect-ratio:1122/1402;background:none;box-shadow:none;-webkit-mask-image:linear-gradient(#000 72%,transparent);mask-image:linear-gradient(#000 72%,transparent);margin-bottom:-90px}
+.hero .art::after{display:none}
+.hero h1{font:700 clamp(34px,7.4vw,72px)/1.15 var(--dp);letter-spacing:.12em;color:var(--gb);margin:0;text-shadow:0 2px 30px #000}
+.hero .zh{font:400 clamp(24px,4vw,34px) var(--hd);letter-spacing:.5em;color:var(--gold);margin:22px -.5em 0 0}
+.hero .en{font:italic 19px var(--it);color:var(--gd);letter-spacing:.1em;margin-top:10px}
+.hero a{margin-top:48px;color:var(--gd);font:14px var(--po);letter-spacing:.4em;text-decoration:none}
+
+/* sheet */
+.sheet{position:relative;max-width:42rem;margin:0 auto;padding:80px 60px 56px;background:var(--parch) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .2 0 0 0 0 .1 0 0 0 .09 0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");box-shadow:inset 0 0 90px #8a6f4766,0 0 0 1px var(--gd),0 0 0 8px var(--void),0 0 0 9px var(--gd),0 30px 120px #000}
+.sheet::before{content:"";position:absolute;inset:14px;border:1px solid #8a6f4780;pointer-events:none}
+.lead{font:400 20px/2.2 var(--zh);text-align:center}
+.lead b{font-weight:400;color:var(--crim)}
+.tx{text-align:center;font:italic 17px var(--it);color:#7A5C44;letter-spacing:.08em}
+.dv{border:0;height:1px;background:var(--shade);margin:56px 0;position:relative;overflow:visible}
+.dv::after{content:"";position:absolute;left:50%;top:-4px;width:7px;height:7px;background:var(--crim);transform:translateX(-50%) rotate(45deg)}
+
+.ch{margin-top:80px;position:relative}
+.plate{aspect-ratio:3/1;margin:0 -60px 36px}
+.hd{position:relative;margin-bottom:26px}
+.no{font:700 56px/1 var(--dp);color:var(--crim);display:block;margin-bottom:8px}
+.ch h2{font:400 34px/1.3 var(--hd);letter-spacing:.14em;margin:0}
+.ch .en{display:block;font:italic 18px var(--it);color:#7A5C44}
+@media(min-width:1040px){.no{position:absolute;right:calc(100% + 76px);top:-2px;margin:0;color:var(--gb);text-shadow:0 2px 20px #000;font-size:64px}}
+ul{list-style:none;padding:0;margin:0 0 1.2em}
+li{padding-left:2em;position:relative;margin-bottom:.4em}
+li .s{position:absolute;left:0;top:.62em;font-size:1.25em}
+
+#bd{display:grid;grid-template-columns:1.2em repeat(7,1fr);gap:3px;max-width:22rem;margin:32px auto 8px;font:600 12px/1.2 var(--dp);color:#7A5C44;text-align:center}
+#bd i{font-style:normal;align-self:center}
+#bd u{display:flex;align-items:center;justify-content:center;aspect-ratio:1;text-decoration:none;border:1px solid var(--shade);background:#00000009;font-size:21px}
+#bd u.c{color:var(--crim);font-size:16px}
+.cap{text-align:center;font-size:14px;color:#7A5C44;line-height:1.8}
+.mo{display:flex;justify-content:center;gap:18px;margin:28px 0 6px;text-align:center;font-size:13px;color:#7A5C44;line-height:1.4}
+.mo em{display:block;width:34px;height:34px;border-radius:50%;margin:0 auto 6px;border:1px solid var(--gd);background:var(--gold)}
+.mo .a em{box-shadow:inset -22px 0 0 var(--ip)}.mo .b em{box-shadow:inset -10px 0 0 var(--ip)}.mo .d em{background:var(--ip)}.mo .sp{width:34px}
+.law{background:var(--ox);color:var(--parch);outline:1px solid var(--gold);outline-offset:-8px;padding:34px 36px 16px;margin:32px 0;text-align:center;font-size:18px}
+.law p{color:var(--gb)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:28px 0}
+.two div{padding:22px 22px 6px;border-top:3px solid var(--gold);background:#00000008}
+.two div+div{border-top-color:var(--ip)}
+.two h3{font:400 22px var(--hd);margin:0 0 8px;letter-spacing:.1em}
+.sig{margin:36px 0;text-align:center;font:400 30px var(--hd);letter-spacing:.6em;color:var(--crim)}
+.sigil-pair{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:24px 0 28px}
+.sigil-card{display:flex;align-items:center;gap:14px;padding:12px 14px;border:1px solid var(--gd);background:#00000008}
+.sigil-card img{width:76px;height:76px;flex:none}
+.sigil-card b{display:block;font:400 21px var(--identity);color:var(--crim);letter-spacing:.08em}
+.sigil-card.death b{color:#51463e}
+.sigil-card small{display:block;margin-top:3px;font-size:13px;color:#7A5C44}
+.cb{width:min(210px,60%);aspect-ratio:2/3;margin:36px auto 8px}
+
+/* ten masks + closing, on the dark */
+.dark{max-width:56rem;margin:0 auto;padding:96px 24px 0;text-align:center;color:var(--parch)}
+.dark h2{font:400 32px var(--hd);letter-spacing:.2em;color:var(--gb);margin:0}
+.dark .en{font:italic 18px var(--it);color:var(--gd)}
+.dark p.po{font:400 18px/2.1 var(--zh);max-width:30rem;margin:20px auto 40px}
+.ten{display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:auto auto;grid-auto-flow:column;gap:clamp(8px,2vw,22px);max-width:46rem;margin:0 auto}
+.ten .slot{aspect-ratio:1;border-radius:50%}
+.ten .slot::after{font:700 clamp(12px,2.4vw,20px) var(--dp);color:var(--gd);padding:0}
+.ten .slot img{border-radius:50%}
+.end{max-width:36rem;margin:110px auto 0;padding:0 28px calc(90px + env(safe-area-inset-bottom));text-align:center}
+.end h2{font:400 28px var(--hd);color:var(--gb);letter-spacing:.14em;margin:0 0 28px}
+.end p{color:var(--parch)}
+.big{font:400 clamp(17px,4.4vw,28px)/1.7 var(--zh);color:var(--gb);letter-spacing:.02em;margin:40px 0 10px;white-space:nowrap}.end .signature{font:400 15px/1.8 var(--zh);color:var(--gd);text-align:center;letter-spacing:.05em}
+.end img{width:100px;margin-top:36px}
+
+@media(max-width:620px){
+ body{font-size:16px;line-height:1.95}
+ .sheet{padding:56px 24px 40px;box-shadow:inset 0 0 70px #8a6f4766,0 0 0 1px var(--gd)}
+ .sheet::before{inset:8px}
+ .plate{margin:0 -24px 28px}
+ .ch h2{font-size:30px}.no{font-size:48px}
+ .hero .art{margin-bottom:-60px}
+ .two{grid-template-columns:1fr}
+ .sigil-pair{grid-template-columns:1fr;gap:10px}
+ .law{padding:30px 22px 10px}
+ .lead{font-size:18px}
+}
+@media(prefers-reduced-motion:reduce){#gate,#gate img{transition:none!important}.wm svg{animation:none}html{scroll-behavior:auto}}
+</style>
+<link rel="stylesheet" href="preview-layouts.css">
+</head>
+<body class="preview theatre">
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+ <symbol id="l" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 7C6.5 7 2.5 10 2.5 14.2S6.5 21 12 21s9.5-2.6 9.5-6.8S17.5 7 12 7zM7.5 11.5L10 14H5zm9 0L19 14h-5zM7 17l1.2-1.3 1.3 1.1 1.3-1.3 1.2 1.3 1.2-1.3 1.3 1.1 1.2-1.1L17 17c-1.3 1.6-3 2.2-5 2.2S8.3 18.6 7 17z"/><path d="M11 7c0-1.8.3-3.2 1.8-4l.7 1.2C12.8 4.7 12.7 5.7 13 7z"/></symbol>
+ <symbol id="d" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 2.5C7.3 2.5 4 5.7 4 10.1c0 2.6 1.2 4.4 3 5.5V19c0 .6.4 1 1 1h1.2v-2h1.3v2h3v-2h1.3v2H16c.6 0 1-.4 1-1v-3.4c1.8-1.1 3-2.9 3-5.5 0-4.4-3.3-7.6-8-7.6zM9 8.6a2.1 2.4 0 1 0 0 4.8 2.1 2.4 0 0 0 0-4.8zm6 0a2.1 2.4 0 1 0 0 4.8 2.1 2.4 0 0 0 0-4.8zM12 14l1.2 2.2h-2.4z"/></symbol>
+</svg>
+
+<nav class="previewbar" aria-label="设计版本"><a class="overview" href="previews.html">三个方向</a><div><a href="rules-gallery.html#chapter-1">A · 错位画廊</a><a href="rules-scroll.html#chapter-1">B · 羊皮卷轴</a><a href="rules-theatre.html#chapter-1" aria-current="page">C · 剧场幕章</a></div><a href="rules_new.html#rules">正式版 ↗</a></nav><div class="bg"></div>
+<div class="wm" aria-hidden="true"><svg viewBox="0 0 400 400" fill="none" stroke="#C2A06A"><defs><pattern id="g" width="28.57" height="28.57" patternUnits="userSpaceOnUse"><path d="M28.57 0H0V28.57" stroke-width=".7"/></pattern></defs><circle cx="200" cy="200" r="196" stroke-width="1.5"/><circle cx="200" cy="200" r="184" stroke-width=".8" stroke-dasharray="1.5 11"/><circle cx="200" cy="200" r="168" stroke-width="1"/><circle cx="200" cy="200" r="150" stroke-width=".6"/><rect x="100" y="100" width="200" height="200" fill="url(#g)" stroke-width="1.5"/><path d="M200 4v40M200 356v40M4 200h40M356 200h40M193 200h14M200 193v14" stroke-width="1.5"/></svg></div>
+
+<header class="hero">
+  <figure class="slot art" data-ph="Hero 主视觉&#10;assets/web/hero.png"><img src="assets/web/hero.png" alt="" onerror="this.remove()"></figure>
+  <h1>THE LAST<br>MASQUERADE</h1>
+  <div class="zh">命运法则</div><p class="direction-label">C / 剧场幕章</p>
+  <div class="en">The Laws of Fate</div>
+  <a href="#rules">向下展开</a>
+</header>
+
+<main class="sheet" id="rules">
+
+<div class="lead">
+  <p>致被命运选中的执棋者：</p>
+  <p>午夜将至，命运之盘即将苏醒。</p>
+  <p>传说，世间万物的兴衰、王国的存亡，乃至生与死的界限，都不过是棋盘上的一枚落子。</p>
+  <p>每逢万圣之夜，十位执棋者便会收到密信，受邀来到这场无人知晓结局的夜宴。</p>
+  <p>他们各自背负着不可告人的使命。然而，命运从不允许所有人的愿望同时实现。</p>
+  <p><b>十位执棋者，五对宿敌。</b></p>
+  <p>你知道自己所追求的未来，也知道有一个人注定要将它毁灭。<br>唯独不知道，那个人此刻正坐在谁的身旁。</p>
+  <p>或许他正与你谈笑风生。或许她刚刚向你伸出援手。又或许，你早已与自己的宿敌签下了一份契约。</p>
+  <p>今夜，信任可以被交换，忠诚可以被伪装，甚至命运本身，也能成为交易的筹码。</p>
+  <p><b>记住：在命运之盘上，最危险的从来不是落下的棋子，而是执棋的人。</b></p>
+</div>
+
+<hr class="dv">
+<p class="tx" style="margin:0">即便是最强大的执棋者，也无法违背命运之盘的古老法则。</p>
+
+<section class="ch" id="chapter-1">
+  <figure class="slot plate" data-ph="章节插画 Ⅰ · 命运之盘&#10;assets/web/ch1.jpg · 1800×600"><img src="assets/web/ch1.jpg" alt="" onerror="this.remove()"></figure><div class="chapter-copy">
+  <div class="hd"><span class="no">Ⅰ</span><h2>命运之盘</h2><span class="en">The Board of Fate</span></div>
+  <p>世界的命运凝结于一块 <b>7×7 的棋盘</b>。棋盘的<b>行自上而下编号 1–7，列自左而右编号 1–7</b>。</p>
+  <p>棋盘之上，存在两种能够改写现实的力量：</p>
+  <div class="sigil-pair">
+    <div class="sigil-card"><img src="assets/life-sigil.png" alt="生之烙印：蚀刻南瓜"><div><b>生之烙印</b><small>象征生机、欲望与新生。</small></div></div>
+    <div class="sigil-card death"><img src="assets/death-sigil.png" alt="死之烙印：蚀刻骷髅"><div><b>死之烙印</b><small>象征死亡、终结与永恒。</small></div></div>
+  </div>
+  <div id="bd" aria-hidden="true"></div>
+  <div class="cap">示意：每格只能容纳一道烙印。中心的星标是第 4 行第 4 列。</div>
+  <p style="margin-top:28px">每个格子只能容纳一道烙印，已经刻下的命运不可擦除、移动或覆盖。</p>
+  <p>你可以通过落子改变棋盘，尝试让自己的宿命成为现实。</p>
+  <p>但请谨记：每一次改变，都可能成全另一位执棋者的野心。</p>
+</div></section>
+
+<section class="ch" id="chapter-2">
+  <figure class="slot plate" data-ph="章节插画 Ⅱ · 四次命运轮转&#10;assets/web/ch2.jpg · 1800×600"><img src="assets/web/ch2.jpg" alt="" onerror="this.remove()"></figure><div class="chapter-copy">
+  <div class="hd"><span class="no">Ⅱ</span><h2>四次命运轮转</h2><span class="en">The Four Turns</span></div>
+  <p>命运之盘将在夜宴中开启四轮。四轮分为前后两个阶段，每个阶段包含连续两轮落子。</p>
+  <div class="mo" aria-hidden="true">
+    <div class="d"><em></em>第一轮</div><div class="a"><em></em>第二轮</div><span class="sp"></span><div class="b"><em></em>第三轮</div><div><em></em>第四轮</div>
+  </div>
+  <p class="cap">前两轮为第一阶段，后两轮为第二阶段。</p>
+  <p style="margin-top:20px">每一轮，所有尚未被放逐的执棋者都将依次获得一次行动机会。你可以选择：</p>
+  <ul>
+    <li><svg class="s life"><use href="#l"/></svg>在任意空格刻下一枚生之烙印。</li>
+    <li><svg class="s death"><use href="#d"/></svg>在任意空格刻下一枚死之烙印。</li>
+    <li><b>静观命运（Pass）</b>：放弃本次行动，不放置任何烙印。</li>
+  </ul>
+  <p>每轮每人只能行动一次。放弃的机会不能累积或补回。四轮合计，每位执棋者拥有最多四次基础落子机会。</p>
+  <p>具体轮次与行动顺序，将由守夜人在夜宴中宣布。</p>
+</div></section>
+
+<section class="ch" id="chapter-3">
+  <figure class="slot plate" data-ph="章节插画 Ⅲ · 宿敌与假面&#10;assets/web/ch3.jpg · 1800×600"><img src="assets/web/ch3.jpg" alt="" onerror="this.remove()"></figure><div class="chapter-copy">
+  <div class="hd"><span class="no">Ⅲ</span><h2>宿敌与假面</h2><span class="en">The Hidden Rivals</span></div>
+  <p>每位执棋者都拥有一个独一无二的身份、一项秘密使命，以及一位命中注定的宿敌。你的宿敌与你追求着完全相反的结局。</p>
+  <p>你知道宿敌的称号和目标，却不知道谁隐藏在那副假面之下。任何人都可能是敌人，也可能成为暂时的盟友。</p>
+  
+  <p>你可以观察、试探、谈判、欺骗，甚至故意让别人误解你的真实意图。但你必须遵守一条铁律：</p>
+  <div class="law"><p><b>不得展示身份密信，也不得直接公开或明确说出自己的真实身份与秘密胜利条件。</b></p></div>
+  <p>其余的一切，交由你的智慧决定。</p>
+</div></section>
+
+<section class="ch" id="chapter-4">
+  <figure class="slot plate" data-ph="章节插画 Ⅳ · 揭面审判&#10;assets/web/ch4.jpg · 1800×600"><img src="assets/web/ch4.jpg" alt="" onerror="this.remove()"></figure><div class="chapter-copy">
+  <div class="hd"><span class="no">Ⅳ</span><h2>揭面审判</h2><span class="en">The Accusation</span></div>
+  <p>如果你认为自己已经识破了宿敌的真实身份，可以向守夜人发起一次「揭面审判」。</p>
+  <p><b>从夜宴开始，直到最终封盘之前，任何尚未出局的执棋者都可以随时发起指认。</b>你必须明确指出，你认为谁是自己的宿敌。守夜人将核验双方身份。</p>
+  <div class="two">
+    <div><h3>指认正确</h3><p>你将立刻赢得与宿敌的命运对决。宿敌被放逐，失去后续落子与指认资格。而你，可以继续影响这个世界。</p></div>
+    <div><h3>指认错误</h3><p>你将因冒犯命运而被放逐，立即退出棋盘游戏，失去后续行动与指认资格。你的真正宿敌则直接赢得与你的对决。</p></div>
+  </div>
+  <p>每位执棋者至多有一次发起指认的机会。你可以选择始终保持沉默，但有时，迟疑比鲁莽更加致命。</p>
+  <p>所有已放置的烙印都将永久留在棋盘之上，即使其主人已经被放逐。</p>
+</div></section>
+
+<section class="ch" id="chapter-5">
+  <figure class="slot plate" data-ph="章节插画 Ⅴ · 命运碎片&#10;assets/web/ch5.jpg · 1800×600"><img src="assets/web/ch5.jpg" alt="" onerror="this.remove()"></figure><div class="chapter-copy">
+  <div class="hd"><span class="no">Ⅴ</span><h2>命运碎片</h2><span class="en">Fragments of Fate</span></div>
+  <p>古老的传说并没有记载命运之盘的全部力量。在夜宴的歌声、欢笑、胜利，以及一些难以解释的荒唐行为中，少数执棋者将获得珍贵的<b>命运碎片</b>。</p>
+  <p>每枚命运碎片都可以在最终封盘前，为持有它的执棋者换取一次额外行动。更重要的是：<b>命运碎片可以交易。</b></p>
+  <p>你可以赠予、交换，或者通过任何双方自愿接受的条件进行交易。契约可以缔结，承诺也可能被背叛。但在交易中，没人有义务告诉你全部真相。</p>
+  <p>只有仍拥有执棋资格的人可以使用命运碎片。被放逐者尚未使用的碎片将失去效力。</p>
+</div></section>
+
+<section class="ch" id="chapter-6">
+  <figure class="slot plate" data-ph="章节插画 Ⅵ · 午夜审判&#10;assets/web/ch6.jpg · 1800×600"><img src="assets/web/ch6.jpg" alt="" onerror="this.remove()"></figure><div class="chapter-copy">
+  <div class="hd"><span class="no">Ⅵ</span><h2>午夜审判</h2><span class="en">The Final Judgment</span></div>
+  <p>当四轮命运轮转结束，守夜人将宣布最后的机会。所有尚未出局的执棋者，可以使用持有的命运碎片，完成最后的交易、落子与宿敌指认。</p>
+  <p>随后，守夜人将正式宣布：</p>
+  <div class="sig">封盘</div>
+  <p>从这一刻起，所有交易、落子和指认都将停止。十封密信背后的真相终于揭晓。</p>
+  <p>对于尚未通过揭面审判决出胜负的宿敌，命运之盘的最终状态将决定谁实现了自己的使命。五场宿命之争，将各自迎来结局。</p>
+  <p>有人将改写历史，有人将坠入深渊。但还有一些故事，或许连命运本身都未曾预料。</p>
+</div></section>
+
+</main>
+
+
+
+<footer class="end">
+  <h2>守夜人的最后忠告</h2>
+  <p>你可以密谋，可以交易，可以背叛，也可以将自己的命运押在一次鲁莽的指认之上。</p>
+  <p>胜利者或许能够改写世界，失败者或许将永远被放逐于虚空。</p>
+  <p>不过，考虑到本次世界末日的举办地点只是一场朋友聚会，以上后果均不会在现实中生效。</p>
+  <p>所以，不必太在意输赢。尽情唱歌，放心胡闹，吃好喝好，和朋友们度过一个值得记住的夜晚。即使在棋盘上被放逐，夜宴的大门也永远向你敞开。</p>
+  <p>毕竟——</p>
+  <div class="big">世界可以毁灭，今晚不能无聊。</div>
+  <div class="signature">—— 守夜人，谨启</div>
+  <img src="assets/seal.png" alt="">
+</footer>
+
+<script>
+(function(){
+ var h='<i></i>',r,c,L={'2,3':1,'5,6':1,'3,2':1},D={'3,5':1,'6,2':1,'5,3':1};
+ for(c=1;c<8;c++)h+='<i>'+c+'</i>';
+ for(r=1;r<8;r++){h+='<i>'+r+'</i>';
+  for(c=1;c<8;c++){var k=r+','+c;
+   h+=r==4&&c==4?'<u class="c">✦</u>':L[k]?'<u class="life"><svg class="s"><use href="#l"/></svg></u>':D[k]?'<u class="death"><svg class="s"><use href="#d"/></svg></u>':'<u></u>'}}
+ document.getElementById('bd').innerHTML=h;
+})();
+</script>
+</body>
+</html>
