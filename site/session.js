@@ -13,7 +13,7 @@
  if(kind==='host'){
  const p=data.pairs;if(!Array.isArray(p)||p.length!==10||p.some((v,i)=>!Number.isInteger(v)||v<1||v>10||v===i+1||p[v-1]!==i+1))throw Error();
  document.querySelector('#key').value='SG1:'+btoa(JSON.stringify(p));document.querySelector('#load').click();
- status.textContent='本局已自动载入，核验已启用。';status.parentElement.hidden=false;
+ status.textContent='本局已自动载入，核验已启用。';status.parentElement.before(status);
  }else{
  if(!Number.isInteger(data.number)||data.number<1||data.number>10||typeof data.title!=='string')throw Error();
  const box=document.querySelector('#identity');box.hidden=false;
