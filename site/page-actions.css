@@ -1,0 +1,6 @@
+.page-actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin:34px auto;max-width:760px;padding:0 20px}
+.page-actions a{display:inline-block;padding:14px 24px;border:1px solid #c2a06a;background:#5e1b28;color:#e3c98f;font:16px/1.6 'Songti SC','Noto Serif SC',SimSun,serif;letter-spacing:2px;text-decoration:none;text-align:center}
+.page-actions a:hover{background:#74323b}.page-actions a:focus-visible{outline:2px solid #e3c98f;outline-offset:4px}
+.page-actions .secondary{background:#17121a}.page-actions .secondary:hover{background:#292020}
+#recover{scroll-margin-top:24px}#recoverForm{display:flex;flex-wrap:wrap;gap:12px;align-items:end}#recoverForm label{display:flex;flex-direction:column;flex:1 1 210px;min-width:0}#emailPrefix{width:100%;min-width:0}#recoveryStatus{min-height:1.8em;margin-bottom:0}#rememberedIdentity a{color:#74323b;text-underline-offset:4px}#recoverForm button:disabled{opacity:.6;cursor:wait}
+@media(max-width:380px){.page-actions{gap:10px;padding:0 16px}.page-actions a{font-size:15px;padding:12px 16px;letter-spacing:1px}}

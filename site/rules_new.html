@@ -81,7 +81,7 @@ li .s{position:absolute;left:0;top:.62em;font-size:1.25em}
 .cap{text-align:center;font-size:14px;color:#7A5C44;line-height:1.8}
 .mo{display:flex;justify-content:center;gap:18px;margin:28px 0 6px;text-align:center;font-size:13px;color:#7A5C44;line-height:1.4}
 .mo em{display:block;width:34px;height:34px;border-radius:50%;margin:0 auto 6px;border:1px solid var(--gd);background:var(--gold)}
-.mo .a em{box-shadow:inset -22px 0 0 var(--ip)}.mo .b em{box-shadow:inset -10px 0 0 var(--ip)}.mo .d em{background:var(--ip)}.mo .sp{width:34px}
+.mo .a em{box-shadow:inset 22px 0 0 var(--ip)}.mo .b em{box-shadow:inset 10px 0 0 var(--ip)}.mo .d em{background:var(--ip)}.mo .sp{width:34px}
 .law{background:var(--ox);color:var(--parch);outline:1px solid var(--gold);outline-offset:-8px;padding:34px 36px 16px;margin:32px 0;text-align:center;font-size:18px}
 .law p{color:var(--gb)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:28px 0}
@@ -126,7 +126,7 @@ li .s{position:absolute;left:0;top:.62em;font-size:1.25em}
 }
 @media(prefers-reduced-motion:reduce){#gate,#gate img{transition:none!important}.wm svg{animation:none}html{scroll-behavior:auto}}
 </style>
-</head>
+<link rel="stylesheet" href="page-actions.css"></head>
 <body class="lock">
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -151,7 +151,7 @@ li .s{position:absolute;left:0;top:.62em;font-size:1.25em}
   <a href="#rules">向下展开</a>
 </header>
 
-<main class="sheet" id="rules"><section id="identity" hidden></section>
+<main class="sheet" id="rules"><nav class="page-actions" aria-label="密信与首页"><a data-identity-return href="index.html#recover">打开我的密信</a><a class="secondary" href="index.html">前往守夜人首页</a></nav><section id="identity" hidden></section>
 
 <div class="lead">
   <p>致被命运选中的执棋者：</p>
@@ -261,7 +261,7 @@ li .s{position:absolute;left:0;top:.62em;font-size:1.25em}
   <div class="big">世界可以毁灭，今晚不能无聊。</div>
   <div class="signature">—— 守夜人，谨启</div>
   <img src="assets/seal.png" alt="">
-</footer>
+<nav class="page-actions" aria-label="密信与首页"><a data-identity-return href="index.html#recover">打开我的密信</a><a class="secondary" href="index.html">前往守夜人首页</a></nav></footer>
 
 <script>
 (function(){
@@ -279,5 +279,5 @@ li .s{position:absolute;left:0;top:.62em;font-size:1.25em}
  document.getElementById('bd').innerHTML=h;
 })();
 </script>
-<script src="session.js"></script></body>
+<script src="secret-grid-codec.js"></script><script src="identity-nav.js"></script><script src="session.js"></script></body>
 </html>
