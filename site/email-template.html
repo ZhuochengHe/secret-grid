@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
+<title>THE LAST MASQUERADE · 命运棋局</title>
+<style>
+  /* Only progressive enhancement. Every element is fully styled inline. */
+  @media only screen and (max-width:620px){
+    .wrap{width:100% !important}
+    .pad{padding-left:24px !important;padding-right:24px !important}
+    .title{font-size:30px !important;letter-spacing:5px !important}
+    .role{font-size:26px !important}
+    .badge{width:280px !important}
+    .board-cell{padding-left:16px !important;padding-right:16px !important}
+  }
+  @media only screen and (max-width:360px){
+    .title{font-size:26px !important;letter-spacing:3px !important}
+  }
+</style>
+</head>
+<body style="margin:0;padding:0;background:#120D10;">
+
+
+
+
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px;color:#120D10;opacity:0;">
+  密信已封缄。今夜，只有你知道自己的命运。&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;&#847;&zwnj;&nbsp;
+</div>
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="#120D10" style="background:#120D10;">
+<tr><td align="center" style="padding:0;">
+
+<table role="presentation" class="wrap" width="600" cellpadding="0" cellspacing="0" border="0" bgcolor="#120D10" style="width:600px;max-width:600px;background:#120D10;">
+
+  
+  <tr>
+    <td bgcolor="#120D10" style="background:#120D10;padding:0;line-height:0;font-size:0;">
+      <img src="{{HERO_URL}}" width="600" alt="THE LAST MASQUERADE · 命运棋局" style="display:block;border:0;width:100%;max-width:600px;height:auto;background:#120D10;color:#E3C98F;font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:1.5;text-align:center;">
+    </td>
+  </tr>
+
+  
+  <tr>
+    <td class="pad" align="center" bgcolor="#120D10" style="background:#120D10;padding:6px 40px 36px;text-align:center;">
+      <div class="title" style="font-family:Georgia,'Times New Roman',serif;font-size:36px;line-height:1.25;letter-spacing:8px;color:#E3C98F;font-weight:normal;">THE LAST<br>MASQUERADE</div>
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="margin:20px auto 0;">
+        <tr><td width="64" style="border-top:1px solid #8A6F47;font-size:0;line-height:0;">&nbsp;</td></tr>
+      </table>
+      <div style="margin-top:18px;font-family:'Songti SC','Noto Serif SC','Source Han Serif SC',STSong,SimSun,serif;font-size:20px;letter-spacing:8px;color:#C2A06A;">命运棋局</div>
+      <div style="margin-top:8px;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:14px;letter-spacing:2px;color:#8A6F47;">Secret Grid</div>
+    </td>
+  </tr>
+
+  
+  <tr>
+    <td align="center" bgcolor="#120D10" style="background:#120D10;padding:40px 0 8px;line-height:0;font-size:0;">
+      <img src="{{SEAL_URL}}" width="120" alt="" style="display:block;border:0;width:120px;height:auto;margin:0 auto;">
+    </td>
+  </tr>
+
+  
+  <tr>
+    <td class="pad" align="center" bgcolor="#120D10" style="background:#120D10;padding:40px 48px 8px;text-align:center;font-family:'Songti SC','Noto Serif SC','Source Han Serif SC',STSong,SimSun,serif;">
+      <div style="font-size:20px;line-height:1.8;color:#C2A06A;">致被命运选中的执棋者：</div>
+      <p style="margin:32px 0 0;font-size:15px;line-height:1.95;color:#E8DCC2;">午夜将至，命运之盘即将苏醒。</p>
+      <p style="margin:24px 0 0;font-size:15px;line-height:1.95;color:#E8DCC2;">十位执棋者，五对宿敌。</p>
+      <p style="margin:24px 0 0;font-size:15px;line-height:1.95;color:#E8DCC2;">你知道自己所追求的未来，也知道有一个人注定要将它毁灭。<br>唯独不知道，那个人此刻正坐在谁的身旁。</p>
+    </td>
+  </tr>
+
+  
+  <tr>
+    <td class="pad" bgcolor="#120D10" style="background:#120D10;padding:48px 48px 48px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr><td align="center"><img src="https://zhuochenghe.github.io/secret-grid/assets/divider.png" width="480" height="40" alt="" style="display:block;width:100%;max-width:480px;height:auto;border:0;"></td></tr>
+      </table>
+    </td>
+  </tr>
+
+  
+  <tr>
+    <td class="pad" align="center" bgcolor="#120D10" style="background:#120D10;padding:0 48px 28px;text-align:center;font-family:'Songti SC','Noto Serif SC','Source Han Serif SC',STSong,SimSun,serif;">
+      <div style="font-size:15px;line-height:1.9;color:#C2A06A;letter-spacing:4px;">你的命运已被揭示</div>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#120D10" style="background:#120D10;padding:0 0 28px;line-height:0;font-size:0;">
+      <img class="badge" src="{{BADGE_URL}}" width="320" alt="{{ROMAN}} · {{ROLE_ZH}}" style="display:block;border:0;width:320px;max-width:100%;height:auto;margin:0 auto;color:#E3C98F;font-family:'Songti SC','Noto Serif SC',SimSun,serif;font-size:20px;line-height:1.5;text-align:center;">
+    </td>
+  </tr>
+
+  <tr>
+    <td class="pad" bgcolor="#120D10" style="background:#120D10;padding:0 24px 8px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="{{PANEL_BG}}" style="background:{{PANEL_BG}};border:1px solid {{PANEL_BORDER}};">
+        <tr>
+          <td style="padding:36px 32px 12px;text-align:center;font-family:'Songti SC','Noto Serif SC','Source Han Serif SC',STSong,SimSun,serif;">
+            <div style="font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:1;color:{{PANEL_ACCENT}};">{{ROMAN}}</div>
+            <div style="margin:12px 0;font-size:14px;"><a href="{{PLAYER_URL}}" style="color:#E3C98F;text-decoration:underline;">打开你的身份密信</a></div>
+            <div class="role" style="margin-top:14px;font-size:30px;line-height:1.3;letter-spacing:4px;color:{{PANEL_ACCENT}};">{{ROLE_ZH}}</div>
+            <div style="margin-top:6px;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:15px;line-height:1.6;color:#8A6F47;">{{ROLE_EN}}</div>
+            <p style="margin:24px 0 0;font-size:15px;line-height:1.95;color:#E8DCC2;text-align:left;">{{LORE_SHORT}}</p>
+          </td>
+        </tr>
+
+        
+        <tr>
+          <td style="padding:20px 32px 8px;font-family:'Songti SC','Noto Serif SC','Source Han Serif SC',STSong,SimSun,serif;">
+            <div style="border-top:1px solid {{PANEL_BORDER}};font-size:0;line-height:0;">&nbsp;</div>
+            <div style="margin-top:22px;font-size:17px;line-height:1.6;color:{{PANEL_ACCENT}};letter-spacing:2px;">你的宿命</div>
+            <p style="margin:10px 0 0;font-size:15px;line-height:1.95;color:#E8DCC2;">{{DESTINY_HTML}}</p>
+          </td>
+        </tr>
+
+        
+        <tr>
+          <td class="board-cell" align="center" style="padding:20px 32px 12px;">
+            {{MINI_BOARD_HTML}}
+            <div style="margin-top:10px;font-family:'Songti SC','Noto Serif SC',SimSun,serif;font-size:12px;line-height:1.7;color:#8A6F47;">行自上而下 1–7，列自左而右 1–7。高亮处是与你的宿命有关的格子。</div>
+          </td>
+        </tr>
+
+        
+        <tr>
+          <td style="padding:16px 32px 12px;font-family:'Songti SC','Noto Serif SC','Source Han Serif SC',STSong,SimSun,serif;">
+            <div style="border-top:1px solid {{PANEL_BORDER}};font-size:0;line-height:0;">&nbsp;</div>
+            <div style="margin-top:22px;font-size:17px;line-height:1.6;color:{{PANEL_ACCENT}};letter-spacing:2px;">你的宿敌：{{RIVAL_NAME}}</div>
+            <p style="margin:10px 0 0;font-size:15px;line-height:1.95;color:#E8DCC2;">{{RIVAL_GOAL_HTML}}</p>
+          </td>
+        </tr>
+
+        
+        <tr>
+          <td style="padding:12px 32px 32px;font-family:'Songti SC','Noto Serif SC','Source Han Serif SC',STSong,SimSun,serif;">
+            <div style="padding:14px 16px;background:#0A080B;font-size:13px;line-height:1.8;color:#C2A06A;text-align:center;">请保密。你知道宿敌的称号与目标，但不知道谁戴着那副假面。</div>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  
+  <tr>
+    <td class="pad" bgcolor="#120D10" style="background:#120D10;padding:48px 48px 48px;">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr><td align="center"><img src="https://zhuochenghe.github.io/secret-grid/assets/divider.png" width="480" height="40" alt="" style="display:block;width:100%;max-width:480px;height:auto;border:0;"></td></tr>
+      </table>
+    </td>
+  </tr>
+
+  
+  <tr>
+    <td class="pad" align="center" bgcolor="#120D10" style="background:#120D10;padding:0 48px 8px;text-align:center;font-family:'Songti SC','Noto Serif SC','Source Han Serif SC',STSong,SimSun,serif;">
+      <div style="font-size:24px;line-height:1.5;letter-spacing:4px;color:#E3C98F;">夜宴</div>
+      <p style="margin:20px 0 0;font-size:17px;line-height:1.9;color:#E8DCC2;"><strong style="color:#E3C98F;">{{EVENT_DATE}}<br>{{EVENT_TIME}}</strong></p>
+      <p style="margin:16px 0 0;font-size:17px;line-height:1.9;color:#E8DCC2;"><strong style="color:#E3C98F;">{{EVENT_LOCATION}}</strong></p>
+    </td>
+  </tr>
+
+  
+  <tr>
+    <td class="pad" bgcolor="#120D10" style="background:#120D10;padding:48px 48px 8px;font-family:'Songti SC','Noto Serif SC','Source Han Serif SC',STSong,SimSun,serif;">
+      <div style="font-size:20px;line-height:1.6;letter-spacing:3px;color:#C2A06A;text-align:center;">命运法则，三句话</div>
+      <table role="presentation" align="center" cellpadding="0" cellspacing="0" border="0" style="margin:24px auto 8px;">
+        <tr>
+          <td align="center" valign="top" style="width:50%;padding:0 12px 16px;">
+            <img src="{{LIFE_SIGIL_URL}}" width="64" height="64" alt="生之烙印" style="display:block;width:64px;height:64px;border:0;margin:0 auto 8px;">
+            <div style="font-size:13px;line-height:1.6;letter-spacing:2px;color:#D98A3D;">生之烙印</div>
+          </td>
+          <td align="center" valign="top" style="width:50%;padding:0 12px 16px;">
+            <img src="{{DEATH_SIGIL_URL}}" width="64" height="64" alt="死之烙印" style="display:block;width:64px;height:64px;border:0;margin:0 auto 8px;">
+            <div style="font-size:13px;line-height:1.6;letter-spacing:2px;color:#D9D2C0;">死之烙印</div>
+          </td>
+        </tr>
+      </table>
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:24px;">
+        <tr>
+          <td width="36" valign="top" style="font-size:20px;line-height:1.9;color:#C2A06A;">壹</td>
+          <td valign="top" style="font-size:15px;line-height:1.95;color:#E8DCC2;padding-bottom:14px;"><strong style="color:#E3C98F;">七乘七</strong>的命运之盘，每人最多<strong style="color:#E3C98F;">四次基础落子</strong>，刻下<span style="color:#D98A3D;">生之烙印</span>或<span style="color:#D9D2C0;">死之烙印</span>。</td>
+        </tr>
+        <tr>
+          <td width="36" valign="top" style="font-size:20px;line-height:1.9;color:#C2A06A;">贰</td>
+          <td valign="top" style="font-size:15px;line-height:1.95;color:#E8DCC2;padding-bottom:14px;">你有一位隐藏的宿敌，目标与你完全相反。<strong style="color:#E3C98F;">不得直接公开或明确说出真实身份与秘密胜利条件。</strong></td>
+        </tr>
+        <tr>
+          <td width="36" valign="top" style="font-size:20px;line-height:1.9;color:#C2A06A;">叁</td>
+          <td valign="top" style="font-size:15px;line-height:1.95;color:#E8DCC2;">尚未出局者可在夜宴开始至最终封盘前指认一次宿敌：<strong style="color:#E3C98F;">猜对，你赢；猜错，你被放逐。</strong></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+
+  
+  <tr>
+    <td align="center" bgcolor="#120D10" style="background:#120D10;padding:40px 24px 12px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center">
+        <tr>
+          <td align="center" bgcolor="#5E1B28" style="background:#5E1B28;border:1px solid #C2A06A;padding:16px 44px;">
+            <a href="{{RULES_URL}}" style="display:inline-block;color:#E3C98F;font-family:'Songti SC','Noto Serif SC','Source Han Serif SC',STSong,SimSun,serif;font-size:17px;line-height:1.4;letter-spacing:4px;text-decoration:none;">展开命运法则</a>
+          </td>
+        </tr>
+      </table>
+      <div style="margin-top:16px;font-family:'Songti SC','Noto Serif SC',SimSun,serif;font-size:12px;line-height:1.8;color:#8A6F47;">按钮无法点击？复制此链接：<a href="{{RULES_URL}}" style="color:#C2A06A;text-decoration:underline;">{{RULES_URL}}</a></div>
+    </td>
+  </tr>
+
+  
+  <tr>
+    <td class="pad" align="center" bgcolor="#120D10" style="background:#120D10;padding:72px 40px 8px;text-align:center;font-family:'Songti SC','Noto Serif SC','Source Han Serif SC',STSong,SimSun,serif;">
+      <div style="font-size:19px;line-height:1.7;letter-spacing:0;color:#E3C98F;white-space:nowrap;">世界可以毁灭，今晚不能无聊。</div>
+      <div style="margin-top:12px;font-size:14px;line-height:1.8;color:#C2A06A;font-style:normal;text-align:center;">—— 守夜人，谨启</div>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="#120D10" style="background:#120D10;padding:40px 0 16px;line-height:0;font-size:0;">
+      <img src="{{SEAL_URL}}" width="96" alt="" style="display:block;border:0;width:96px;height:auto;margin:0 auto;">
+    </td>
+  </tr>
+
+  
+  <tr>
+    <td class="pad" align="center" bgcolor="#120D10" style="background:#120D10;padding:16px 40px 48px;text-align:center;font-family:'Songti SC','Noto Serif SC',SimSun,serif;font-size:12px;line-height:1.8;color:#8A6F47;">
+      这封密信只属于收件人本人，请勿转发。
+    </td>
+  </tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>
