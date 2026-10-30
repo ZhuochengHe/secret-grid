@@ -19,9 +19,10 @@
    document.body.append(frame,post);post.submit();
   });
  }
+ function ruleReady(){return demo||state?.accusationRule==='board-after-correct-v2';}
  function updateDisabled(){
-  refreshButton.disabled=busy||!endpoint();revealButton.disabled=busy||!state;previewButton.disabled=busy||!state||!revealed||state.sealed;settleButton.disabled=busy||!confirmedChoices||!state?.sendingEnabled||state.sealed;retryButton.disabled=busy||!state?.sendingEnabled||!state.players.some(p=>p.result!==null&&p.mail==='pending');
-  if(host?.controlKey)judge.disabled=busy||!state?.sendingEnabled||state.sealed||!state.players.some(p=>p.active&&!p.used);
+  refreshButton.disabled=busy||!endpoint();revealButton.disabled=busy||!state;previewButton.disabled=busy||!ruleReady()||!state||!revealed||state.sealed;settleButton.disabled=busy||!ruleReady()||!confirmedChoices||!state?.sendingEnabled||state.sealed;retryButton.disabled=busy||!ruleReady()||!state?.sendingEnabled||!state.players.some(p=>p.result!==null&&p.mail==='pending');
+  if(host?.controlKey)judge.disabled=busy||!ruleReady()||!state?.sendingEnabled||state.sealed||!state.players.some(p=>p.active&&!p.used);
  }
  function render(){
   document.getElementById('endingOverview').textContent=state.sealed?'本局已封盘，诸位结局已定。':'已定结局 '+state.players.filter(p=>p.result!==null).length+' / '+state.players.length+(demo?'；已模拟寄信 ':'；邮件已发送 ')+state.players.filter(p=>p.mail==='sent').length+' 封。';
@@ -34,7 +35,7 @@
   updateDisabled();
  }
  function readChoices(){return Array.from({length:5},(_,i)=>{const radio=form.querySelector('input[name="pair-'+i+'"]:checked');return radio?Number(radio.value):null;});}
- async function run(action,extra={}){if(busy||!endpoint())return;busy=true;status.textContent='正在处理……';updateDisabled();try{const result=await rpc(action,extra);state=result.state;confirmedChoices=null;summary.replaceChildren();render();status.textContent=[result.message,...(result.warnings||[])].filter(Boolean).join(' ')||(!state.sendingEnabled?'裁决服务已连接；结局邮件发送开关尚未启用。':'状态已同步。');return result;}catch(error){status.textContent=error.message;return null;}finally{busy=false;updateDisabled();}}
+ async function run(action,extra={}){if(busy||!endpoint())return;if(action!=='state'&&!ruleReady()){status.textContent='云端仍为旧指认规则，请更新 Apps Script 并部署新版本后再裁决。';return;}busy=true;status.textContent='正在处理……';updateDisabled();try{const result=await rpc(action,extra);state=result.state;confirmedChoices=null;summary.replaceChildren();render();if(!ruleReady()){status.textContent='云端仍为旧指认规则。请更新 Apps Script 并部署新版本，再查看裁决进展。';return result;}status.textContent=[result.message,...(result.warnings||[])].filter(Boolean).join(' ')||(!state.sendingEnabled?'裁决服务已连接；结局邮件发送开关尚未启用。':'状态已同步。');return result;}catch(error){status.textContent=error.message;return null;}finally{busy=false;updateDisabled();}}
  refreshButton.onclick=()=>run('state');revealButton.onclick=async()=>{revealed=true;const result=await run('state');if(!result)revealed=false;updateDisabled();};
  form.addEventListener('change',()=>{confirmedChoices=null;summary.replaceChildren();updateDisabled();});
  previewButton.onclick=async()=>{const choices=readChoices(),result=await run('previewSettlement',{choices});if(!result?.plan)return;confirmedChoices=choices;summary.append(element('h3','封盘结局预览'));const list=element('ul');for(const row of result.plan.results)list.append(element('li',row.number+' 号 · '+row.title+'：'+(row.result?'胜利':'失败')));summary.append(list);if(result.plan.doubleLossPairs.length)summary.append(element('p','双方皆败：第 '+result.plan.doubleLossPairs.map(i=>i+1).join('、')+' 对。','double-loss'));status.textContent='请核对以上结局，再点击“'+settleButton.textContent+'”。';updateDisabled();};
