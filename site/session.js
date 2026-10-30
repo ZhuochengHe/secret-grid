@@ -6,7 +6,7 @@ async function loadSecretGridSession(){
  const status=document.querySelector('#keyStatus');
  const previewMode=document.body.dataset.preview==='true'||params.get('preview')==='1';
  if(!kind&&status){const saved=SecretGridNavigation.getHost();if(saved){params=new URLSearchParams(new URL(saved.url).hash.slice(1));kind='host';}}
- if(!kind){const identity=document.querySelector('#identity');if(identity){identity.hidden=true;identity.replaceChildren();}if(status)status.textContent='请使用发信后生成的主持人专用链接打开工具。';return;}
+ if(!kind){const identity=document.querySelector('#identity');if(identity){identity.hidden=true;identity.replaceChildren();}if(status)status.textContent='请使用发信后生成的守夜人专用链接打开工具。';return;}
  try{
  const key=params.get('key'),token=params.get(kind);
  if(!key||!token)throw Error();
@@ -24,14 +24,14 @@ async function loadSecretGridSession(){
  const box=document.querySelector('#identity');box.replaceChildren();
  if(params.get('view')==='rules'){box.hidden=true;const gate=document.querySelector('#gate');if(gate)gate.style.display='none';document.body.classList.remove('lock');document.querySelector('#rules')?.scrollIntoView();return;}
  box.hidden=false;
- const label=document.createElement('p');label.textContent=previewMode?'示例预览 · 尚未分配给玩家':'仅供你阅读 · 玩家 '+data.number+' 号';box.append(label);
+ const label=document.createElement('p');label.textContent=previewMode?'示例预览 · 尚未分配给执棋者':'仅供你阅读 · 执棋者 '+data.number+' 号';box.append(label);
  const heading=document.createElement('h2');heading.textContent=data.title;heading.style.fontFamily='Zhi Mang Xing,serif';box.append(heading);
  if(typeof data.badgeUrl==='string'&&/^https:\/\/zhuochenghe\.github\.io\/secret-grid\/assets\/[a-f0-9]+\.png$/.test(data.badgeUrl)){const art=document.createElement('img');art.src=data.badgeUrl;art.alt=data.title+'徽章';art.style.cssText='display:block;width:min(260px,80%);height:auto;margin:24px auto';box.append(art);}
  for(const [title,text] of [['',data.en],['',data.lore],['你的宿命',data.goal],['你的宿敌：'+data.rivalTitle,data.rivalGoal]]){
  if(title){const h=document.createElement('h3');h.textContent=title;box.append(h);}
  const p=document.createElement('p');const parts=String(text||'').split(/(\*\*[^*]+\*\*)/g);for(const part of parts){const n=document.createElement(part.startsWith('**')?'strong':'span');for(const piece of part.replace(/^\*\*|\*\*$/g,'').split(/(🎃|💀)/u)){if(piece==='🎃'||piece==='💀'){const icon=document.createElement('img');icon.src='assets/'+(piece==='🎃'?'life':'death')+'-sigil.png';icon.alt=piece==='🎃'?'生之烙印':'死之烙印';icon.style.cssText='width:1.4em;height:1.4em;object-fit:contain;vertical-align:-.3em;margin:0 .12em';n.append(icon);}else n.append(document.createTextNode(piece));}p.append(n);}p.style.whiteSpace='pre-line';box.append(p);
  }
- const note=document.createElement('p');note.textContent=previewMode?'这是一份视觉示例，不代表任何玩家的正式身份。':'请保密这封密信和本页链接。下方是所有玩家通用的完整规则。';box.append(note);box.style.borderBottom='1px solid #8A6F47';box.style.paddingBottom='40px';
+ const note=document.createElement('p');note.textContent=previewMode?'这是一份视觉示例，不代表任何执棋者的正式身份。':'请保密这封密信和本页链接。下方是所有执棋者通用的完整规则。';box.append(note);box.style.borderBottom='1px solid #8A6F47';box.style.paddingBottom='40px';
  document.querySelector('#gate').style.display='none';document.body.classList.remove('lock');box.scrollIntoView();
  }
  }catch{if(location.hash!==fragment)return;const box=document.querySelector('#identity')||status;if(box){box.hidden=false;box.textContent='链接不完整或无法读取，请重新打开邮件中的完整链接。';}const gate=document.querySelector('#gate');if(gate)gate.style.display='none';document.body.classList.remove('lock');}
